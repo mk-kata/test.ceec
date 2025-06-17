@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/*--------------------------
+SUB
+----------------------------*/
+body.sub {
+	&:not(.energy_saving) #mainVisual {
+		height: 240px;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-image: url('../images/common/main_visual.png');
+		@include sp() {
+			height: 200px;
+		}
+		.contents-inner {
+			position: relative;
+			height: 100%;
+			.title {
+				@include centerPos(y);
+				left: 20px;
+				padding-left: 30px;
+				background: url('../images/common/mv-border.png') no-repeat left center;
+				@include sp() {
+					padding: 0 20px;
+					background-size: 4px 100%;
+				}
+				span {
+					display: block;
+					@include fsize(16, 24);
+					color: #4fabdf;
+				}
+				h1 {
+					margin-top: 10px;
+					@include fsize(34, 50);
+					color: $blue;
+					font-weight: bold;
+					line-height: 1.4;
+					@include sp() {
+						margin-top: 5px;
+						line-height: 1.2;
+					}
+				}
+			}
+		}
+	}
+	#contents {
+		padding-top: 30px;
+	}
+}

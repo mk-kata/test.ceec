@@ -1,0 +1,78 @@
+
+
+/*---------------------------
+PRIVACY
+---------------------------*/
+body.policy {
+	#mainVisual {
+		background-image: url('../images/privacy/mv.png');
+	}
+	#contents {
+		.c-box01 {
+			.section-title {
+				margin: 80px 0 50px;
+				@include sp() {
+					margin: 50px 0 20px;
+				}
+				&.title1 {
+					margin-top: 35px;
+					@include sp() {
+						margin-top: 20px;
+					}
+				}
+			}
+			.sub-title {
+				margin: 40px 0 15px;
+				@include fsize(15, 25);
+				font-weight: bold;
+				color: $blue;
+				@include sp() {
+					margin: 20px 0 10px;
+				}
+			}
+			p {
+				@include fsize(15, 25);
+				line-height: 1.6;
+			}
+			ol, ul {
+				li {
+					@include fsize(15, 25);
+					line-height: 1.6;
+				}
+			}
+			ul {
+				margin-top: 15px;
+				@include sp() {
+					margin-top: 10px;
+				}
+				li {
+					text-indent: -1.5em;
+					margin-left: 1.5em;
+					&:not(:first-child) {
+						margin-top: 5px;
+					}
+				}
+			}
+			ol {
+				margin-top: 25px;
+				padding-left: 20px;
+				list-style-type: decimal;
+				list-style-position: inside;
+				@include sp() {
+					margin-top: 15px;
+					padding-left: 10px;
+				}
+				li {
+					text-indent: -1em;
+					margin-left: 1em;
+					&:not(:first-child) {
+						margin-top: 15px;
+						@include sp() {
+							margin-top: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,165 @@
+
+
+/*---------------------------
+COMPANY
+---------------------------*/
+body.company {
+	#mainVisual {
+		background-image: url('../images/company/mv.png');
+	}
+	#contents {
+		.c-box01 {
+			padding: 60px 0;
+			@include sp() {
+				padding: 40px 0;
+			}
+			table {
+				@include conIn(920px);
+				margin-top: 35px;
+				@include sp() {
+					margin-top: 20px;
+					tr, th, td {
+						display: block;
+						width: 100%;
+					}
+				}
+				th, td {
+					padding: 20px 0;
+					border: 1px solid #8e8ec9;
+					@include fsize(15, 30);
+					line-height: 1.4;
+					vertical-align: middle;
+					@include sp() {
+						padding: 15px;
+					}
+				}
+				th {
+					width: 240px;
+					font-weight: bold;
+					color: #fff;
+					background-color: #2b2b8a;
+					text-align: center;
+					@include sp() {
+						width: 100%;
+					}
+				}
+				td {
+					padding-left: 20px;
+					padding-right: 20px;
+					@include sp() {
+						padding-left: 15px;
+						padding-right: 15px;
+					}
+				}
+			}
+		}
+		.c-box02 {
+			padding: 80px 0;
+			background: url('../images/common/contents-bg-slash.png');
+			@include sp() {
+				padding: 40px 0;
+			}
+			.box {
+				position: relative;
+				margin-top: 30px;
+				&::before {
+					content: url('../images/energy_saving/sec06-img01.png');
+					position: absolute;
+					bottom: 0;
+					right: -40px;
+					line-height: 0;
+					@include sp() {
+						content: none;
+					}
+				}
+				.inner-box {
+					position: relative;
+					width: 630px;
+					padding: 30px 40px;
+					background-color: #fff;
+					border-radius: 20px;
+					box-shadow: 0 0 10px 0 #ccc;
+					@include sp() {
+						width: 100%;
+						padding: 20px;
+					}
+					&::before {
+						content: '';
+						@include pc() {
+							@include centerPos(y);
+							right: -31px;
+							width: 31px;
+							height: 44px;
+						}
+						background: url('../images/energy_saving/sec06-corn.png') no-repeat;
+						@include sp() {
+							@include centerPos(x);
+							bottom: -30px;
+							width: 44px;
+							height: 31px;
+							background: url('../images/energy_saving/sec06-corn-sp.png') no-repeat;
+						}
+					}
+					ul {
+						padding: 20px 25px;
+						background-color: #fbf4f0;
+						border-radius: 10px;
+						@include sp() {
+							padding: 20px;
+						}
+						li {
+							padding-left: 20px;
+							@include fsize(18, 25);
+							line-height: 1.2;
+							color: $blue;
+							font-weight: bold;
+							background: url('../images/icn/dot-blue.png') no-repeat left center;
+							&:not(:first-child) {
+								margin-top: 15px;
+							}
+						}
+					}
+					p {
+						margin-top: 25px;
+						@include fsize(15, 23);
+						line-height: 1.6;
+						letter-spacing: -0.04em;
+						@include sp() {
+							margin-top: 20px;
+							line-height: 1.6;
+						}
+					}
+				}
+				.img {
+					@include sp() {
+						margin-top: 30px;
+						text-align: center;
+						img {
+							width: 80%;
+							max-width: 300px;
+						}
+					}
+				}
+			}
+		}
+		.c-box03 {
+			padding-top: 60px;
+			@include sp() {
+				padding-top: 40px;
+			}
+			.map {
+				margin-top: 30px;
+				@include sp() {
+					margin-top: 20px;
+				}
+				iframe {
+					width: 100%;
+					height: 280px;
+					@include sp() {
+						height: 200px;
+					}
+				}
+			}
+		}
+	}
+}

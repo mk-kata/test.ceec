@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/*--------------------------
+COLUMN
+----------------------------*/
+body.column-detail {
+	#contents {
+		.category-list {
+			margin-top: 20px;
+		}
+		.post-date {
+			margin-top: 10px;
+		}
+		.post-body {
+			margin-top: 50px;
+			p {
+				@include fsize(15, 22);
+				line-height: 1.6;
+				&:not(:nth-of-type(1)) {
+					margin-top: 30px;
+				}
+			}
+		}
+	}
+}
+body.column {
+	#contents {
+		.local-link {
+			margin-bottom: 50px;
+		}
+		.list {
+			@include flex(flex-start, stretch, wrap);
+			margin-top: 50px;
+			@include sp() {
+				display: block;
+			}
+			.item {
+				position: relative;
+				width: 24%;
+				border-radius: 20px;
+				overflow: hidden;
+				box-shadow: 0 0 10px 0 #ccc;
+				@include pc() {
+					&:not(:nth-of-type(4n+1)) {
+						margin-left: 1.33%;
+					}
+					&:not(:nth-of-type(-n+4)) {
+						margin-top: 30px;
+					}
+				}
+				@include sp() {
+					width: 100%;
+					border-radius: 15px;
+					&:not(:nth-of-type(1)) {
+						margin-top: 30px;
+					}
+				}
+				> a {
+					@include coverA();
+				}
+				.thumbnail {
+					img {
+						width: 100%;
+					}
+				}
+				.content {
+					padding: 25px 25px 20px;
+					background-color: #fff;
+					@include sp() {
+						padding: 15px 20px;
+					}
+					.date {
+						@include fsize(12, 18);
+					}
+					.item-title {
+						margin-top: 10px;
+						@include fsize(16, 26);
+						color: $blue;
+						font-weight: bold;
+						line-height: 1.4;
+					}
+					p {
+						margin-top: 10px;
+						@include fsize(15, 25);
+						line-height: 1.6;
+						@include sp() {
+							margin-top: 10px;
+						}
+					}
+					.category {
+						@include flex(flex-end, center, wrap);
+						margin-top: 20px;
+						span {
+							height: 20px;
+							margin-right: 5px;
+							margin-bottom: 5px;
+							padding: 0 12px;
+							border-radius: 20px;
+							line-height: 19px;
+							@include fsize(12, 16);
+							border: 1px solid #6b6b76;
+						}
+					}
+				}
+			}
+		}
+	}
+}

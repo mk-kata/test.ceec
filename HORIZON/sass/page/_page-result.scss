@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+/*--------------------------
+RESULT
+----------------------------*/
+body.result {
+	#mainVisual {
+		background-image: url('../images/result/mv.png');
+	}
+	#contents {
+		.c-box01 {
+			.lead-text {
+				margin-bottom: 40px;
+				@include fsize(22, 30);
+				text-align: center;
+				line-height: 1.6;
+				color: $blue;
+			}
+			.result-list {
+				margin-top: 40px;
+				padding: 40px 0;
+				background: url('../images/common/contents-bg-slash.png');
+				.result-item {
+					@include flex(flex-start, center);
+					background-color: #fff;
+					border-radius: 10px;
+					padding: 25px 50px 25px 0;
+					box-shadow: 0 0 5px 0 #ccc;
+					@include sp() {
+						display: block;
+						padding: 0 20px 20px;
+					}
+					&:not(:first-child) {
+						margin-top: 20px;
+					}
+					.number {
+						position: relative;
+						@include shrink();
+						width: 180px;
+						@include fsize(56, 60);
+						font-weight: bold;
+						color: #c0e2f4;
+						text-align: center;
+						@include sp() {
+							width: 100%;
+							padding: 20px 0;
+						}
+						&::before {
+							content: '';
+							@include centerPos(y);
+							left: 0;
+							width: 4px;
+							height: 65px;
+							background-color: #41a3d9;
+							@include sp() {
+								left: -20px;
+								height: 60%;
+							}
+						}
+					}
+					.content {
+						flex-grow: 1;
+						@include flex(flex-start,flex-start);
+						padding: 15px 0 15px 80px;
+						border-left: 1px solid #c0e2f4;
+						background: url('../images/result/icn-memo.png') no-repeat right center;
+						@include sp() {
+							display: block;
+							padding: 20px 0 0 0;
+							border-left: none;
+							border-top: 1px solid #c0e2f4;
+							background-size: 50px auto;
+						}
+						ul {
+							&:nth-of-type(2) {
+								padding-left: 100px;
+								@include sp() {
+									padding: 20px 0 0 0;
+								}
+							}
+							li {
+								@include flex(flex-start, flex-start);
+								&:not(:first-child) {
+									margin-top: 15px;
+								}
+								span {
+									@include fsize(15, 22);
+									&:nth-of-type(1) {
+										@include shrink();
+										width: 120px;
+										padding-left: 15px;
+										color: $blue;
+										font-weight: bold;
+										background: url('../images/result/icn-dot.png') no-repeat left center;
+										@include sp() {
+											width: 90px;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.c-box02 {
+			padding-top: 125px;
+			@include sp() {
+				padding-top: 50px;
+			}
+			.headding {
+				position: relative;
+				padding-bottom: 60px;
+				@include sp() {
+					padding-bottom: 30px;
+				}
+				.title {
+					text-align: center;
+					@include fsize(20, 30);
+					font-weight: bold;
+					color: $blue;
+				}
+				&::before {
+					content: '';
+					position: absolute;
+					left: 90px;
+					bottom: 0;
+					width: 224px;
+					height: 157px;
+					background: url('../images/result/img01.png') no-repeat;
+					background-size: 100% auto;
+					@include sp() {
+						content: none;
+					}
+				}
+				&::after {
+					content: '';
+					position: absolute;
+					right: 90px;
+					bottom: 0;
+					width: 224px;
+					height: 157px;
+					background: url('../images/result/img02.png') no-repeat;
+					background-size: 100% auto;
+					@include sp() {
+						content: none;
+					}
+				}
+			}
+			.table-box {
+				table {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+}

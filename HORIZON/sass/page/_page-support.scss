@@ -1,0 +1,288 @@
+@charset "UTF-8";
+
+/*--------------------------
+SUPPORT IMPROVE PROFIT
+----------------------------*/
+body.support-group {
+	#mainVisual {
+		background-image: url("../images/support/improve_profit/mv.png")!important;
+	}
+
+	#contents {
+		position: relative;
+		padding-top: 60px;
+		@include sp() {
+			padding-top: 0;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 300px;
+			background: url('../images/common/contents-bg-slash.png') center top;
+			@include sp() {
+				height: auto;
+				background-size: 100% auto;
+			}
+		}
+
+		.section-title {
+			text-align: center;
+			.number {
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				border-radius: 50px;
+				text-align: center;
+				@include fsize(18, 28);
+				color: #309ad5;
+				text-align: center;
+				line-height: 44px;
+				font-weight: bold;
+				border: 3px solid #309ad5;
+				@include sp() {
+					width: 40px;
+					height: 40px;
+					font-size: 1.4rem;
+					border-width: 2px;
+					line-height: 38px;
+				}
+			}
+			.title {
+				margin-top: 25px;
+				@include fsize(30, 45);
+				color: $blue;
+				font-weight: bold;
+				line-height: 1.4;
+			}
+			.sub-title {
+				margin-top: 10px;
+				@include fsize(20, 30);
+				color: $blue;
+				text-align: center;
+				line-height: 1.4;
+			}
+		}
+
+		.c-box-type01 {
+			padding: 90px 0 100px;
+			@include sp() {
+				padding: 40px 0;
+			}
+		}
+
+		.c-box-type02 {
+			padding: 50px 0 70px;
+			@include sp() {
+				padding: 40px 0;
+			}
+		}
+
+		.support-box01 {
+			@include sp() {
+				padding: 40px 0;
+			}
+			.box {
+				padding-top: 45px;
+				text-align: center;
+				@include sp() {
+					padding: 40px 20px 20px;
+				}
+				p {
+					color: #222282;
+					@include fsize(21, 35);
+					line-height: 1.6;
+					font-weight: bold;
+				}
+				.inner {
+					@include flex(flex-start, center);
+				}
+			}
+		}
+
+		.support-box02 {
+			.check-case-box {
+				margin-top: 45px;
+				.img {
+					position: absolute;
+					bottom: -40px;
+					right: 65px;
+					@include sp() {
+						width: 30%;
+						max-width: 110px;
+						top: -8%;
+						right: 5%;
+					}
+				}
+			}
+			.box02 {
+				margin-top: 100px;
+				.box-title {
+					position: relative;
+					min-width: 775px;
+					padding: 20px 30px;
+					margin: 50px auto 0;
+					line-height: 1.6;
+					text-align: center;
+					border-radius: 80px;
+					background-color: #2b2b8a;
+					color: #fff;
+					font-weight: bold;
+					@include fsize(28, 40);
+					@include sp() {
+						min-width: 100%;
+						width: 100%;
+						height: auto;
+						padding: 15px 20px;
+						line-height: 1.4;
+					}
+					&::before {
+						content: '';
+						@include centerPos(x);
+						bottom: -21px;
+						width: 40px;
+						height: 23px;
+						background: url('../images/support/improve_profit/sec02-corn.png') no-repeat;
+					}
+				}
+				.inner-box {
+					@include flex(flex-start, flex-start);
+					margin-top: 30px;
+					padding-top: 25px;
+					border: 5px solid $blue;
+					border-radius: 20px;
+					background-color: #fff;
+					@include sp() {
+						flex-wrap: wrap;
+						margin-top: 40px;
+						padding: 20px;
+						border-radius: 15px;
+					}
+				}
+				.img {
+					@include shrink();
+					text-align: center;
+					@include sp() {
+						order: 2;
+						width: 100%;
+					}
+					img {
+						vertical-align: bottom;
+					}
+				}
+				.sentence {
+					flex-grow: 1;
+					padding: 35px 50px 0;
+					@include sp() {
+						display: block;
+						order: 1;
+						width: 100%;
+						margin-top: 0;
+						padding: 0;
+					}
+					p {
+						line-height: 2;
+						@include fsize(16, 25);
+						color: #242b33;
+					}
+				}
+				.btn {
+					margin-top: 20px;
+					text-align: center;
+					a {
+						width: 420px;
+						@include sp() {
+							width: 100%;
+						}
+					}
+				}
+			}
+			.last-text {
+				margin-top: 30px;
+				@include fsize(16, 25);
+				line-height: 2;
+			}
+			.btn {
+				margin-top: 20px;
+				text-align: center;
+			}
+		}
+
+		.support-box03 {
+			background: url('../images/common/contents-bg-slash.png') center top;
+			.box {
+				margin-top: 30px;
+				padding: 50px;
+				background-color: #fff;
+				border-radius: 20px;
+				box-shadow: 0 0 10px 0 #ccc;
+				@include sp() {
+					padding: 20px;
+				}
+				.box-item {
+					&:not(:nth-of-type(1)) {
+						margin-top: 30px;
+					}
+					.inner {
+						@include flex(space-between, flex-start);
+						@include sp() {
+							display: block;
+						}
+						.left {
+							width: 615px;
+							@include sp() {
+								width: 100%;
+							}
+						}
+						.right {
+							@include shrink();
+							@include sp() {
+								margin-top: 15px;
+								text-align: center;
+							}
+						}
+					}
+					.item-title {
+						padding: 20px 25px 20px 45px;
+						@include fsize(18, 26);
+						color: #121273;
+						border-radius: 10px;
+						background: url("../images/common/gnavi-icn01.png") no-repeat 25px center;
+						background-color: #fbf4f0;
+						@include sp() {
+							padding: 15px 20px 15px 35px;
+							line-height: 1.4;
+							background-position: 15px center;
+						}
+					}
+					p {
+						margin-top: 20px;
+						@include fsize(15, 25);
+						line-height: 1.6;
+					}
+				}
+			}
+		}
+
+		.support-box04 {
+			.lead-text {
+				padding-bottom: 20px;
+				background: url("../images/support/improve_profit/sec04-img02.png") no-repeat right bottom;
+				@include sp() {
+					background: transparent;
+				}
+			}
+			.performance-box {
+				ul {
+					background: url("../images/support/improve_profit/sec04-img04.png") no-repeat right bottom;
+					@include sp() {
+						background: transparent;
+					}
+				}
+			}
+		}
+
+	}
+}

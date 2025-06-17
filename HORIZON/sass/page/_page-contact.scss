@@ -1,0 +1,405 @@
+
+
+/*---------------------------
+CONTACT
+---------------------------*/
+body.contact {
+	#mainVisual {
+		background-image: url('../images/contact/mv.png');
+	}
+	#contents {
+		padding-bottom: 100px;
+		@include sp() {
+			padding-bottom: 50px;
+		}
+		.mw_wp_form_input {
+			.flow > div:nth-of-type(1) {
+				background-image: url('../images/contact/flow-img01-current.png')!important;
+			}
+		}
+		.mw_wp_form_confirm {
+			.c-box01 {
+				display: none;
+			}
+			.flow > div:nth-of-type(2) {
+				background-image: url('../images/contact/flow-img02-current.png')!important;
+			}
+			.form-box {
+				th {
+					background: transparent!important;
+				}
+				td {
+					.name .col span {
+						display: none;
+					}
+					.name .col:nth-of-type(2) {
+						margin-left: 0;
+					}
+					.caution {
+						display: none;
+					}
+				}
+			}
+		}
+		.mw_wp_form_complete {
+			.c-box01 {
+				display: none;
+			}
+			.c-box02 {
+				.title {
+					margin-top: 30px;
+					@include fsize(20, 27);
+					font-weight: bold;
+					text-align: center;
+					color: $blue;
+					@include sp() {
+						margin-top: 50px;
+					}
+				}
+			}
+			.flow {
+				margin-top: 0!important;
+				> div:nth-of-type(3) {
+					background-image: url('../images/contact/flow-img03-current.png')!important;
+				}
+			}
+		}
+		.c-box01 {
+			padding-top: 30px;
+			.title {
+				@include fsize(20, 27);
+				font-weight: bold;
+				text-align: center;
+				color: $blue;
+			}
+			.lead-text {
+				margin-top: 20px;
+				@include fsize(15, 25);
+				text-align: center;
+				line-height: 1.6;
+			}
+			.box {
+				position: relative;
+				@include conIn(880px);
+				margin-top: 40px;
+				padding: 25px 0 20px;
+				text-align: center;
+				border: 1px solid #4fabdf;
+				border-radius: 10px;
+				@include sp() {
+					padding-top: 7vw;
+				}
+				.box-title {
+					@include centerPos(x);
+					top: -10px;
+					padding: 0 20px;
+					background-color: #fff;
+					@include fsize(17, 26);
+					line-height: 1.4;
+					color: #4fabdf;
+					white-space: nowrap;
+					@include sp() {
+						top: -5vw;
+					}
+				}
+				.tel {
+					a {
+						padding: 5px 0 5px 45px;
+						@include fsize(26, 40);
+						color: #000;
+						text-decoration: none;
+						@include ff_lato();
+						background: url('../images/contact/icn-tel.png') no-repeat left center;
+						@include sp() {
+							display: inline-block;
+							min-height: 35px;
+							line-height: 35px;
+						}
+					}
+					span {
+						display: block;
+						margin-top: 12px;
+						@include fsize(14, 24);
+					}
+				}
+			}
+		}
+		.c-box02 {
+			padding-top: 50px;
+			.text01 {
+				text-align: center;
+				@include fsize(15, 25);
+				line-height: 1.4;
+			}
+			.flow {
+				position: relative;
+				@include conIn(570px);
+				@include flex(space-between, flex-start);
+				margin-top: 40px;
+				text-align: center;
+				@include sp() {
+					@include flex(space-between, center);
+					max-width: 100%;
+				}
+				&::before {
+					content: '';
+					@include centerPos(x);
+					top: 45px;
+					width: 90%;
+					height: 1px;
+					background-color: #9bd0ee;
+					@include sp() {
+						top: 50%;
+					}
+				}
+				.flow-item {
+					position: relative;
+					z-index: 2;
+					width: 120px;
+					padding-top: 90px;
+					@include fsize(15, 20);
+					line-height: 1.4;
+					text-align: center;
+					background-size: 80px 80px;
+					background-repeat: no-repeat;
+					background-position: center top;
+					@include sp() {
+						width: 30%;
+						max-width: 100px;
+						padding-top: 0;
+						background-size: 100% 100%;
+						&::before {
+							content: '';
+							display: block;
+							padding-top: 100%;
+						}
+						span {
+							@include centerPos(x);
+							bottom: -8vw;
+							white-space: nowrap;
+						}
+					}
+					&:nth-of-type(1) {
+						background-image: url('../images/contact/flow-img01.png');
+					}
+					&:nth-of-type(2) {
+						margin: 0 100px;
+						background-image: url('../images/contact/flow-img02.png');
+						@include sp() {
+							margin: 0;
+						}
+					}
+					&:nth-of-type(3) {
+						background-image: url('../images/contact/flow-img03.png');
+					}
+				}
+			}
+			.form-box {
+				margin-top: 30px;
+				@include sp() {
+					margin-top: 100px;
+				}
+				table {
+					@include conIn(960px);
+					@include sp() {
+						tr, th, td {
+							display: block;
+							width: 100%;
+						}
+					}
+					th, td {
+						padding: 30px 0;
+						@include fsize(16, 26);
+						border-top: 1px solid #b8c4c9;
+						border-bottom: 1px solid #b8c4c9;
+						vertical-align: top;
+					}
+					th {
+						width: 230px;
+						padding-left: 30px;
+						text-align: left;
+						background: url('../images/contact/icn-free.png') no-repeat right 28px;
+						@include sp() {
+							width: 100%;
+							padding: 20px;
+							background-position: right center;
+						}
+						&.must {
+							background: url('../images/contact/icn-must.png') no-repeat right 28px;
+							@include sp() {
+								background-position: right center;
+							}
+						}
+					}
+					td {
+						padding-left: 70px;
+						padding-right: 45px;
+						@include sp() {
+							padding: 20px;
+							border-top: none;
+							border-bottom: none;
+						}
+						input[type="text"],
+						input[type="email"],
+						input[type="tel"] {
+							width: 320px;
+							height: 55px;
+							padding: 0 20px;
+							-webkit-appearance: none;
+							border: 1px solid #b5c3ca;
+							background-color: #f4f8fb;
+							border-radius: 3px;
+							@include fsize(15, 25);
+							box-sizing: border-box;
+							@include sp() {
+								width: 100%;
+								height: 40px;
+							}
+						}
+						textarea {
+							width: 100%;
+							height: 220px;
+							padding: 10px;
+							@include fsize(15, 25);
+							border: 1px solid #b5c3ca;
+							background-color: #f4f8fb;
+							resize: none;
+							@include sp() {
+								height: 130px;
+							}
+						}
+					}
+					span.error {
+						margin-top: 5px;
+					}
+					.name {
+						@include flex(flex-start, center);
+						@include sp() {
+							display: block;
+						}
+						&:nth-of-type(2) {
+							margin-top: 8px;
+						}
+						.col {
+							@include flex(flex-start, center);
+							&:nth-of-type(2) {
+								margin-left: 20px;
+								@include sp() {
+									margin: 10px 0 0 0;
+								}
+							}
+							span {
+								width: 40px;
+								@include fsize(15, 25);
+								@include sp() {
+									width: 50px;
+								}
+							}
+							input {
+								width: 220px;
+								@include sp() {
+									width: 100%;
+								}
+							}
+						}
+					}
+					.check-list {
+						@include flex(flex-start, flex-start, wrap);
+						.mwform-checkbox-field {
+							width: 25%;
+							margin: 0;
+							@include sp() {
+								width: 50%;
+								&:not(:nth-of-type(-n+2)) {
+									margin-top: 10px;
+								}
+							}
+							@include pc() {
+								&:not(:nth-of-type(-n+4)) {
+									margin-top: 10px;
+								}
+							}
+							label {
+								@include customChk(25, 25, #b5c3ca, $blue, #f4f8fb);
+							}
+							span {
+								display: inline-block;
+								padding: 4px 0 0 10px;
+							}
+						}
+					}
+					.radio-list {
+						@include flex(flex-start, flex-start, wrap);
+						.mwform-radio-field {
+							width: 25%;
+							margin: 0;
+							@include sp() {
+								width: 100%;
+								&:not(:nth-of-type(1)) {
+									margin-top: 10px;
+								}
+							}
+							@include pc() {
+								&:nth-of-type(3) {
+									width: 50%;
+								}
+								&:nth-of-type(4),
+								&:nth-of-type(5) {
+									width: 50%;
+								}
+								&:not(:nth-of-type(-n+3)) {
+									margin-top: 10px;
+								}
+							}
+							label {
+								@include customRadio(25, #b5c3ca, $blue, #f4f8fb);
+							}
+							span {
+								display: inline-block;
+								padding: 6px 0 0 10px;
+							}
+						}
+					}
+					.caution {
+						margin-top: 20px;
+					}
+				}
+				.btn-group {
+					@include flex(center, center);
+					@include sp() {
+						display: block;
+					}
+					div:nth-of-type(2) {
+						margin-left: 30px;
+						@include sp() {
+							margin: 20px 0 0 0;
+						}
+					}
+				}
+				.submit-btn {
+					margin-top: 30px;
+					text-align: center;
+					input {
+						display: inline-block;
+						-webkit-appearance: none;
+						width: 340px;
+						height: 60px;
+						border-radius: 60px;
+						border-bottom: 3px solid #04043c;
+						color: #fff;
+						@include fsize(15);
+						background: url('../images/icn/arrow-right-blue-white-circle.png') no-repeat 95% center;
+						outline: none;
+						background-color: #2b2b8a;
+						@include sp() {
+							width: 100%;
+						}
+						&:hover {
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
+	}
+}

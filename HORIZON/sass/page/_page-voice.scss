@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+/*--------------------------
+VOICE
+----------------------------*/
+body.voice-detail {
+	#contents {
+		padding-top: 50px;
+		.post-date {
+			margin-top: 20px;
+		}
+		.post-body {
+			margin-top: 50px;
+			p {
+				@include fsize(15, 22);
+				line-height: 1.6;
+				&:not(:nth-of-type(1)) {
+					margin-top: 30px;
+				}
+			}
+		}
+	}
+}
+body.voice {
+	#mainVisual {
+		background-image: url('../images/voice/mv.png');
+	}
+	#contents {
+		padding-top: 30px;
+		.list {
+			.item {
+				&:not(:first-child) {
+					margin-top: 90px;
+				}
+				.item-title {
+					@include fsize(17);
+					font-weight: bold;
+					color: $blue;
+				}
+				.information {
+					margin-top: 15px;
+					@include fsize(15);
+					color: #424242;
+					text-align: right;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,424 @@
+
+@mixin ff_lato() {
+	font-family: 'Lato', sans-serif;
+}
+
+
+
+@mixin conIn($w) {
+	max-width: $w;
+	width: 100%;
+	margin: 0 auto;
+}
+
+
+@mixin coverA($hover: false) {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	@if $hover == true {
+		transition: 0.3s;
+		&:hover {
+			background: rgba(255, 255, 255, 0.3);
+		}
+	}
+}
+
+
+@mixin linkAnim($color) {
+	position: relative;
+	&:hover::before {
+		transform: scale(1, 1);
+	}
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background-color: $color;
+		transform: scale(0, 1);
+		transition: 0.3s;
+	}
+}
+
+
+@function get_vw($size, $viewport:750){
+	$rate: 100 / $viewport;
+	@return $rate * $size * 1vw;
+}
+
+@mixin fsize($pc_size:10, $sp_size:0){
+	@include pc() {
+		font-size: $pc_size * 1px;
+	}
+	@include sp() {
+		@if $sp_size == 0 {
+			$sp_size: $pc_size * 2;
+		}
+		font-size: $sp_size * 1px;
+		font-size: get_vw($sp_size);
+	}
+}
+
+
+
+
+@mixin flex($justify, $align, $wrap: nowrap) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	display: -webkit-flex;
+	flex-wrap: $wrap;
+}
+
+@mixin shrink() {
+	flex-shrink: 0;
+}
+
+@mixin max-h($break-point) {
+	@media screen and (max-height: $break-point) {
+		@content;
+	}
+}
+
+@mixin min-h($break-point) {
+	@media screen and (min-height: $break-point) {
+		@content;
+	}
+}
+
+@mixin pc() {
+	@media screen and (min-width: $pcW) {
+		@content;
+	}
+}
+
+@mixin tab() {
+	@media screen and (max-width: $spW) and (min-width: $tabW) {
+		@content;
+	}
+}
+
+@mixin sp() {
+	@media screen and (max-width: $spW) {
+		@content;
+	}
+}
+
+
+@mixin maxW($break-point) {
+	@media screen and (max-width: $break-point) {
+		@content;
+	}
+}
+
+@mixin minW($break-point) {
+	@media screen and (min-width: $break-point) {
+		@content;
+	}
+}
+
+@mixin maxMinW($break-point-min, $break-point-max) {
+	@media screen and (min-width: $break-point-min) and (max-width: $break-point-max) {
+		@content;
+	}
+}
+
+@mixin arrow($direction: right, $size: 5, $color: #000, $borderW: 2) {
+	content: '';
+	position: absolute;
+	width: $size + px;
+	height: $size + px;
+	border: 0px;
+	border-top: solid $borderW + px $color;
+	border-right: solid $borderW + px $color;
+	@if $direction == top {
+		transform: rotate(-45deg);
+		border-right: solid $borderW + px $color;
+	}
+	@if $direction == left {
+		transform: rotate(315deg);
+	}
+	@elseif $direction == right {
+		transform: rotate(45deg);
+	}
+	@elseif $direction == bottom {
+		transform: rotate(135deg);
+	}
+}
+
+
+@mixin triangleArrow($direction: right, $size: 12, $color: $gray){
+	$set: left;
+
+	@if $direction == left{
+		$set: right;
+	}@elseif $direction == top{
+		$set: bottom;
+	}@elseif $direction == bottom{
+		$set: top;
+	}@else{
+		$set: left;
+	}
+	$size: round($size / 2);
+
+	width: 0;
+	height: 0;
+	border: $size + px solid transparent;
+	border-#{$set}-color: $color;
+}
+
+@mixin bgImage($fileName, $repeat: no-repeat, $position: center center, $size: cover) {
+	background-image: url($fileName);
+	background-repeat: $repeat;
+	background-position: $position;
+	background-size: $size;
+}
+
+@mixin centerPos($direction) {
+	position: absolute;
+	@if $direction == xy {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	@else if $direction == x {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	@else if $direction == y {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+
+@mixin spMenu($w, $h, $spanW, $spanH, $top: 5, $diff: 0, $color: #fff) {
+	$spMenuYPos1: $top + px;
+	$spMenuYPos2: $top + $diff + px;
+	$spMenuYPos3: $top + $diff + $diff + px;
+	a {
+		position: relative;
+		display: block;
+		width: $w + px;
+		height: $h + px;
+		&.active {
+			span:nth-of-type(1) {
+				animation-name: menuAnim1;
+				animation-timing-function: linear;
+				animation-duration: 0.4s;
+				animation-fill-mode: forwards;
+				animation-direction:alternate;
+			}
+			span:nth-of-type(2) {
+				animation-name: menuAnim2;
+				animation-timing-function: linear;
+				animation-duration: 0.4s;
+				animation-fill-mode: forwards;
+				animation-direction:alternate;
+			}
+			span:nth-of-type(3) {
+				animation-name: menuAnim3;
+				animation-timing-function: linear;
+				animation-duration: 0.4s;
+				animation-fill-mode: forwards;
+				animation-direction:alternate;
+			}
+		}
+		span {
+			position: absolute;
+			left: 50%;
+			width: $spanW + px;
+			height: $spanH + px;
+			margin-left: (-1 * $spanW / 2) + px;
+			background-color: $color;
+			&:nth-of-type(1) {
+				top: $spMenuYPos1;
+				-webkit-transform: rotate(0); transform: rotate(0);
+				animation-name: menuAnim4;
+				animation-timing-function: linear;
+				animation-duration: 0.4s;
+				animation-fill-mode: forwards;
+				animation-direction:alternate;
+			}
+			&:nth-of-type(2) {
+				top: $spMenuYPos2;
+				-webkit-transform: rotate(0); transform: rotate(0);
+				animation-name: menuAnim5;
+				animation-timing-function: linear;
+				animation-duration: 0.4s;
+				animation-fill-mode: forwards;
+				animation-direction:alternate;
+			}
+			&:nth-of-type(3) {
+				top: $spMenuYPos3;
+				-webkit-transform: rotate(0); transform: rotate(0);
+				animation-name: menuAnim6;
+				animation-timing-function: linear;
+				animation-duration: 0.4s;
+				animation-fill-mode: forwards;
+				animation-direction:alternate;
+			}
+		}
+	}
+
+	@keyframes menuAnim1 {
+		0% { -webkit-transform: rotate(0); transform: rotate(0); }
+		100% { top: $spMenuYPos2; -webkit-transform: rotate(-45deg); transform: rotate(-45deg); }
+	}
+	@keyframes menuAnim2 {
+		0% { -webkit-transform: rotate(0); transform: rotate(0); }
+		100% { opacity: 0; -webkit-transform: rotate(0); transform: rotate(0); }
+	}
+	@keyframes menuAnim3 {
+		0% { -webkit-transform: rotate(0); transform: rotate(0); }
+		100% { top: $spMenuYPos2; -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+	}
+
+	@keyframes menuAnim4 {
+		0% { top: $spMenuYPos2; -webkit-transform: rotate(-45deg); transform: rotate(-45deg); }
+		100% { top: $spMenuYPos1; -webkit-transform: rotate(0); transform: rotate(0); }
+	}
+	@keyframes menuAnim5 {
+		0% { opacity: 0; -webkit-transform: rotate(0); transform: rotate(0); }
+		100% { opacity: 1; -webkit-transform: rotate(0); transform: rotate(0); }
+	}
+	@keyframes menuAnim6 {
+		0% { top: $spMenuYPos2; -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+		100% { top: $spMenuYPos3; -webkit-transform: rotate(0); transform: rotate(0); }
+	}
+
+}
+
+
+@mixin customRadio($d: 15, $borderColor: #ccc, $chkColor: #000, $bkColor: #ccc) {
+	& {
+		cursor: pointer;
+		position: relative;
+		padding-left: 5px;
+		height: ($d + 2) + px;
+		overflow: hidden;
+		padding-left: $d + px;
+		display: inline-block;
+	}
+	&:before {
+		position: absolute;
+		width: $d + px;
+		height: $d + px;
+		border: 1px solid $borderColor;
+		background-color: $bkColor;
+		border-radius: 50%;
+		left: 0px;
+		top: 0px;
+		content: '';
+		z-index: 3;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		width: 17px;
+		height: 17px;
+		border-radius: 100%;
+		left: 5px;
+		top: 5px;
+		background-color: $chkColor;
+		z-index: 3;
+	}
+	& input[type="radio"] {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		position: absolute;
+		z-index: 4;
+		width: ($d - 5) + px;
+		height: ($d - 5) + px;
+		left: -15px;
+    	top: 5px;
+		margin: 0px;
+		box-shadow: ($d - 7) + px -1px $bkColor;
+		outline: none;
+		border-radius: ($d - 5) + px;
+	}
+	& input[type="radio"]:checked {
+		box-shadow: none;
+		z-index: 1;
+	}
+	& input[type="radio"]:focus {
+		opacity: 0.2;
+		box-shadow: ($d - 7) + px -1px #FFF;
+	}
+	span {
+		display: inline-block;
+	}
+}
+
+
+@mixin customChk($w: 17, $h: 17, $borderColor: #999, $chkColor: #000, $bkColor: #ccc) {
+	& {
+		cursor: pointer;
+		position: relative;
+		padding-left: 25px;
+		overflow: hidden;
+		position: relative;
+		padding-left: 25px;
+		display: inline-block;
+		box-sizing: border-box;
+		height: $h + px;
+	}
+	&:before {
+		content : '';
+		position: absolute;
+		width: $w + px;
+		height: $h + px;
+		left: 0px;
+		top: 0;
+		border: 1px solid $borderColor;
+		z-index: 1;
+		box-sizing: border-box;
+		background-color: $bkColor;
+		border-radius: 3px;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		top: 5px;
+		left: 9px;
+		display: block;
+		width: 4px;
+		height: 9px;
+		border-right: 3px solid $chkColor;
+		border-bottom: 3px solid $chkColor;
+		transform: rotate(45deg);
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		z-index: 2;
+	}
+	& input[type="checkbox"] {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		position: absolute;
+		top: 2px;
+		left: -40px;
+		width: ($w - 3) + px;
+		height: ($h - 3) + px;
+		display: block;
+		box-shadow : 41px 0px $bkColor;
+		z-index: 3;
+		margin: 0px;
+		padding: 0px;
+	}
+	& input[type="checkbox"]:checked {
+		box-shadow: none;
+	}
+	& input[type="checkbox"]:checked:focus {
+		box-shadow: 40px 0px #fff;
+		opacity: 0.1;
+	}
+	& input[type="checkbox"]:focus {
+		box-shadow: 41px 0px #fff;
+	}
+}
