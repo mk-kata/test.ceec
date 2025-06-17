@@ -1,0 +1,92 @@
+ /* #Icons
+   -------------------------------------------------------------------------- */
+/*doc
+---
+title: icons
+name: icons
+categories: [component]
+---
+
+アイコンフォントを使ったアイコンを表示します。デフォルトでは`:before`擬似要素で表示されます。
+サンプルコードはパンくずリストのホームをアイコンで（2つ目以降はアイコンだけで）示した場合の例です。
+
+装飾的なアイコンは`<span>`と`aria-hidden="true"`でマークアップをします。
+
+意味を伝えたいアイコンは`aria-label=""`でマークアップします。
+テキスト全体を読み上げたときに違和感が出ないようにします。
+
+テキストを表示できない場合は`.u-sr-only`でテキストをマークアップします（非表示のままスクリーンリーダーには読み上げられます）。
+
+```block
+<div>
+  <span class="c-icon c-icon--home" aria-hidden="true"></span>ホーム
+</div>
+
+<div>
+  <span class="c-icon c-icon--home" aria-label="ホーム"></span>
+</div>
+
+<div>
+  <span class="c-icon c-icon--home" aria-hidden="true"></span>
+  <span class="u-sr-only">ホーム</span>
+</div>
+```
+*/
+// 任意のクラスの擬似要素で表示する場合は@mixinを使って、
+// ベーススタイルとアイコンの名前を取得します。
+// @example scss
+// .c-list__link {
+//   &:after {
+//     @include _c-icon;
+//     @include _c-icon-name(chevron-right);
+//   }
+// }
+@font-face {
+  font-family: "iconfont";
+  src: url('../fonts/iconfont.eot');
+  src: url('../fonts/iconfont.eot?#iefix') format('eot'),
+    url('../fonts/iconfont.woff') format('woff'),
+    url('../fonts/iconfont.ttf') format('truetype'),
+    url('../fonts/iconfont.svg#iconfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// アイコンフォントのベーススタイル
+@mixin _c-icon {
+  font-family: "iconfont";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  top: -0.1em;
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: none;
+  speak: none;
+}
+
+/* `c-icon c-icon--icon-name`のようなマルチクラスで指定します。 */
+.c-icon:before {
+  @include _c-icon;
+}
+
+@function _icon-char($filename) {
+  $char: "";
+
+  @if $filename == arrow-right { $char: "\E001"; }
+  @if $filename == arrow { $char: "\E002"; }
+
+  @return $char;
+}
+
+@mixin _c-icon-name($filename) {
+  & { content: _icon-char($filename); }
+}
+
+.c-icon--arrow-right:before { @include _c-icon-name(arrow-right); }
+.c-icon--arrow:before { @include _c-icon-name(arrow); }
