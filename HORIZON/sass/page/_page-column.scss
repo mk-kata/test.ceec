@@ -41,10 +41,10 @@ body.column {
 				overflow: hidden;
 				box-shadow: 0 0 10px 0 #ccc;
 				@include pc() {
-					&:not(:nth-of-type(4n+1)) {
+					&:not(:nth-of-type(4n + 1)) {
 						margin-left: 1.33%;
 					}
-					&:not(:nth-of-type(-n+4)) {
+					&:not(:nth-of-type(-n + 4)) {
 						margin-top: 30px;
 					}
 				}
@@ -105,4 +105,40 @@ body.column {
 			}
 		}
 	}
+}
+
+.acf-author-box {
+	display: flex;
+	gap: 20px;
+	margin-top: 20px;
+	align-items: flex-start;
+	padding: 35px 60px;
+	background-color: #f1faff;
+	box-shadow: 0 0 5px 0 #ccc;
+	border-radius: 10px;
+	width: fit-content;
+	margin-left: auto;
+	h5 {
+		font-size: 2em;
+		font-weight: bold;
+	}
+	a {
+		text-decoration: none;
+	}
+	p {
+		line-height: 1.8;
+		margin-top: 1rem !important;
+		margin-bottom: 0 !important;
+	}
+}
+
+.acf-author-left img {
+	width: 150px;
+	height: auto;
+	border-radius: 8px;
+}
+
+.acf-author-right p {
+	margin: 0 0 10px;
+	font-size: 1.5em;
 }
